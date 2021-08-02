@@ -17,8 +17,8 @@ spec:
     targetRevision: HEAD
     helm:
       parameters:
-        - name: "global.name"
-          value: "emailservicee"
+      - name: "global.name"
+        value: "emailservicee"
   syncPolicy:
     automated:
       prune: true
