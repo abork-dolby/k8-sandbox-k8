@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: microservice-1
+  namespace: default
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  project: default
+  source:
+    path: charts/microservice
+    repoURL: https://github.com/abork-dolby/k8-sandbox-k8.git
+    targetRevision: HEAD
+    helm:
+      parameters:
+        - name: "image.repository"
+          value: "crccheck/hello-world"
+        - name: "tag"
+          value: "latest"
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
