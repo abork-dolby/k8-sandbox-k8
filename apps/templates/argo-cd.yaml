@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: argo-cdd
+  name: argo-cd
   namespace: default
   finalizers:
   - resources-finalizer.argocd.argoproj.io
@@ -12,7 +12,7 @@ spec:
   project: default
   source:
     path: charts/argo-cd
-    repoURL: git@github.com:abork-dolby/k8-sandbox.git
+    repoURL: https://github.com/abork-dolby/k8-sandbox-k8.git
     targetRevision: HEAD
   syncPolicy:
     automated:
