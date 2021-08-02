@@ -4,7 +4,7 @@ microservices:
     namespace: default
     helmParameters:
     - name: "global.name"
-      value: "emailservice"
+      value: "somethingservice"
     - name: "deployment.image.name"
       value: "gcr.io/google-samples/microservices-demo/emailservice"
     - name: "deployment.image.tag"
