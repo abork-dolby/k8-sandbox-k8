@@ -9,7 +9,7 @@ spec:
   destination:
     server: https://kubernetes.default.svc
     namespace: default
-  project: default
+  project: platform
   source:
     path: charts/micro-service
     repoURL: https://github.com/abork-dolby/k8-sandbox-k8.git
