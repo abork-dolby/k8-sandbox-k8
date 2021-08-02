@@ -1,7 +1,7 @@
-# microservices:
-#   - name: emailservice
-#     env: dev
-#     namespace: default
-#     helmParameters:
-#       - name: "global.name"
-#         value: "emailservicee"
+microservices:
+  - name: emailservice
+    env: dev
+    namespace: default
+    helmParameters:
+      - name: "global.name"
+        value: "emailservicee"
