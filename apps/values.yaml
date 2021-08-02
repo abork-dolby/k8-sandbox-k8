@@ -1,11 +1,17 @@
 microservices:
-  - name: somethingservice
+  - name: emailservice
     env: dev
     namespace: default
     helmParameters:
     - name: "global.name"
-      value: "somethingservice"
+      value: "emailservice"
     - name: "deployment.image.name"
       value: "gcr.io/google-samples/microservices-demo/emailservice"
     - name: "deployment.image.tag"
       value: "v0.2.4"
+    # - name: "deployment.environment"
+    #   value: {
+    #     PORT: "8080",
+    #     DISABLE_PROFILER: "1",
+    #     DISABLE_TRACING: "0"
+    #   }
