@@ -16,7 +16,8 @@ spec:
     repoURL: https://github.com/abork-dolby/k8-sandbox-k8.git
     targetRevision: HEAD
     helm:
-      parameters: {{ $microservice.helmParameters }}
+      parameters: 
+        {{- toYaml $microservice.helmParameters | nindent 8 }}
   syncPolicy:
     automated:
       prune: true
