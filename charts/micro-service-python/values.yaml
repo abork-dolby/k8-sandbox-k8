@@ -1,0 +1,14 @@
+name: emailservice
+
+global:
+  environment: {}
+
+image:
+  name: "gcr.io/google-samples/microservices-demo/emailservice"
+  tag: "v0.2.4"
+
+environment: {
+  PORT: "8080",
+  DISABLE_PROFILER: "1"
+  #DISABLE_TRACING: "1"
+}

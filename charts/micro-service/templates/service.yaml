@@ -1,1 +1,20 @@
-{{- include "service" . -}}
+apiVersion: v1
+kind: Service
+metadata:
+  name: emailservice
+spec:
+  type: ClusterIP
+  selector:
+    app: {{ .Values.global.name }}
+  ports:
+  {{- range $spec := $service.specs }}
+  - name: {{ $spec.name }}
+    port: {{ $spec.port }}
+    protocol: {{ $spec.protocol | default "TCP" }}
+          {{- if $spec.targetPort }}
+    targetPort: {{ $spec.targetPort }}
+          {{- end}}
+      {{- if  $spec.nodePort }}
+    nodePort: {{  $spec.nodePort }}
+        {{- end }}
+    {{- end -}}
