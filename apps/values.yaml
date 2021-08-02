@@ -5,3 +5,7 @@ microservices:
     helmParameters:
     - name: "global.name"
       value: "emailservice"
+    - name: "deployment.image.name"
+      value: "gcr.io/google-samples/microservices-demo/emailservice"
+    - name: "deployment.image.tag"
+      value: "v0.2.4"
