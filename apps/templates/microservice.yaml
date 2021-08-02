@@ -1,24 +1,24 @@
+{{- range $microservice := .Values.microservices }}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: emailservice-dev
+  name: {{ $microservice.name }}-{{ $microservice.env }}
   namespace: default
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
     server: https://kubernetes.default.svc
-    namespace: default
+    namespace: namespace
   project: platform
   source:
     path: charts/micro-service
     repoURL: https://github.com/abork-dolby/k8-sandbox-k8.git
     targetRevision: HEAD
     helm:
-      parameters:
-        - name: "global.name"
-          value: "emailservicee"
+      parameters: {{ $microservice.helmParameters }}
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
+{{- end }}
