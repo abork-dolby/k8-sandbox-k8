@@ -16,7 +16,9 @@ spec:
     repoURL: https://github.com/abork-dolby/k8-sandbox-k8.git
     targetRevision: HEAD
     helm:
-      parameters: {{ $microservice.helmParameters }}
+      parameters:
+        - name: "global.name"
+          value: "emailservicee"
   syncPolicy:
     automated:
       prune: true
