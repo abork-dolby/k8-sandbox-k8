@@ -4,4 +4,4 @@ microservices:
     namespace: default
     helmParameters:
     - name: "global.name"
-      value: "emailservicee"
+      value: "emailservice"
