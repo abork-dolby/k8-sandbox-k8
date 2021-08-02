@@ -1,5 +1,5 @@
 microservices:
-  - name: emailservice
+  - name: somethingservice
     env: dev
     namespace: default
     helmParameters:
