@@ -7,14 +7,6 @@ spec:
   selector:
     app: {{ .Values.global.name }}
   ports:
-  {{- range $spec := $service.specs }}
-  - name: {{ $spec.name }}
-    port: {{ $spec.port }}
-    protocol: {{ $spec.protocol | default "TCP" }}
-          {{- if $spec.targetPort }}
-    targetPort: {{ $spec.targetPort }}
-          {{- end}}
-      {{- if  $spec.nodePort }}
-    nodePort: {{  $spec.nodePort }}
-        {{- end }}
-    {{- end -}}
+  - name: grpc
+    port: 5000
+    targetPort: 8080

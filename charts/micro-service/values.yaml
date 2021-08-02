@@ -13,8 +13,8 @@ deployment:
   }
   readinessProbe: 
     periodSeconds: 5
-      exec:
-        command: ["/bin/grpc_health_probe", "-addr=:8080"]
+    exec:
+      command: ["/bin/grpc_health_probe", "-addr=:8080"]
   livenessProbe:
     periodSeconds: 5
     exec:
@@ -30,6 +30,6 @@ deployment:
 service:
   type: ClusterIP
   specs:
-    - port: grpc
-      targetPort: 5000
-      name: 8080
+  - port: grpc
+    targetPort: 5000
+    name: 8080
