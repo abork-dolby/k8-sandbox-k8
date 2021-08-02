@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: {{ .Values.global.name }}
 spec:
+  replicas: 2
   selector:
     matchLabels:
       app: {{ .Values.global.name }}
@@ -13,7 +14,6 @@ spec:
     spec:
       serviceAccountName: default
       terminationGracePeriodSeconds: 5
-      replicas: 2
       containers:
       - name: server
         image: {{ .Values.deployment.image.name }}:{{ .Values.deployment.image.tag }}
