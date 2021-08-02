@@ -3,5 +3,5 @@ microservices:
     env: dev
     namespace: default
     helmParameters:
-      - name: "global.name"
-        value: "emailservicee"
+    - name: "global.name"
+      value: "emailservicee"
