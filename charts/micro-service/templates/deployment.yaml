@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: {{ .Values.global.name }}
 spec:
-  replicas: 2
+  replicas: {{ .Values.deployment.replicas }}
   selector:
     matchLabels:
       app: {{ .Values.global.name }}
@@ -18,7 +18,7 @@ spec:
       - name: server
         image: {{ .Values.deployment.image.name }}:{{ .Values.deployment.image.tag }}
         ports:
-        - containerPort: 8080
+        - containerPort: {{ .Values.deployment.containerPort }}
         {{- if .Values.deployment.environment}}
         env:
         {{- range $name, $value := .Values.deployment.environment }}
@@ -29,10 +29,10 @@ spec:
         readinessProbe:
           periodSeconds: 5
           exec:
-            command: ["/bin/grpc_health_probe", "-addr=:8080"]
+            command: {{ .Values.deployment.readinessProbe.execCommand }}
         livenessProbe:
           periodSeconds: 5
           exec:
-            command: ["/bin/grpc_health_probe", "-addr=:8080"]
+            command: {{ .Values.deployment.livenessProbe.execCommand }}
         resources:
             {{- toYaml .Values.deployment.resources | nindent 12 }}

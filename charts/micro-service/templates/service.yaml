@@ -7,6 +7,4 @@ spec:
   selector:
     app: {{ .Values.global.name }}
   ports:
-  - name: grpc
-    port: 5000
-    targetPort: 8080
+  {{- toYaml .Values.service.ports | nindent 2 }}
