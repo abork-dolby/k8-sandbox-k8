@@ -1,26 +1,26 @@
-{{- range $microservice := .Values.microservices }}
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: {{ $microservice.name }}
-  namespace: default
-  finalizers:
-  - resources-finalizer.argocd.argoproj.io
-spec:
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: {{ $microservice.namespace }}
-  project: platform
-  source:
-    path: charts/micro-service
-    repoURL: https://github.com/abork-dolby/k8-sandbox-k8.git
-    targetRevision: HEAD
-    helm:
-      parameters: 
-        {{- toYaml $microservice.helmParameters | nindent 8 }}
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
----
-{{- end }}
+# {{- range $microservice := .Values.microservices }}
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: {{ $microservice.name }}
+#   namespace: default
+#   finalizers:
+#   - resources-finalizer.argocd.argoproj.io
+# spec:
+#   destination:
+#     server: https://kubernetes.default.svc
+#     namespace: {{ $microservice.namespace }}
+#   project: platform
+#   source:
+#     path: charts/micro-service
+#     repoURL: https://github.com/abork-dolby/k8-sandbox-k8.git
+#     targetRevision: HEAD
+#     helm:
+#       parameters: 
+#         {{- toYaml $microservice.helmParameters | nindent 8 }}
+#   syncPolicy:
+#     automated:
+#       prune: true
+#       selfHeal: true
+# ---
+# {{- end }}

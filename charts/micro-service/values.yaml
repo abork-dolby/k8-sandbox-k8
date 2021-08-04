@@ -4,13 +4,9 @@ global:
 
 deployment:
   image:
-    name: "gcr.io/google-samples/microservices-demo/emailservice"
-    tag: "v0.2.4"
-  environment: {
-    PORT: "8080",
-    DISABLE_PROFILER: "1",
-    DISABLE_TRACING: "0"
-  }
+    name: ""
+    tag: ""
+  environment: {}
   readinessProbe: 
     periodSeconds: 5
     exec:
