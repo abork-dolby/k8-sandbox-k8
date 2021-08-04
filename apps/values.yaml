@@ -9,7 +9,7 @@ microservices:
     - name: "deployment.image.tag"
       value: "v0.2.4"
     - name: "deployment.environment.PORT"
-      value: "8080"
+      value: 8080
     
     # - name: "deployment.environment"
     #   value: {
