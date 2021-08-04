@@ -29,7 +29,10 @@ spec:
         readinessProbe:
           periodSeconds: 5
           exec:
-            command: ["/bin/grpc_health_probe", "-addr=:8080"]
+            command: 
+              {{- range $command := .Values.deployment.readinessProbe.execCommand }}
+              - {{ $command }}
+              {{- end}}
         livenessProbe:
           periodSeconds: 5
           exec:
