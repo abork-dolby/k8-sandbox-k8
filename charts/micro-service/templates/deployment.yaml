@@ -33,6 +33,9 @@ spec:
         livenessProbe:
           periodSeconds: 5
           exec:
-            command: ["/bin/grpc_health_probe", "-addr=:8080"]
+            command: 
+              {{- range $command := .Values.deployment.livenessProbe.execCommand }}
+              - $command
+              {{- end}}
         resources:
             {{- toYaml .Values.deployment.resources | nindent 12 }}
