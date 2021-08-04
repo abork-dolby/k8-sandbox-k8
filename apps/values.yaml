@@ -10,10 +10,3 @@ microservices:
       value: "v0.2.4"
     - name: "deployment.environment.PORT"
       value: 8080
-    
-    # - name: "deployment.environment"
-    #   value: {
-    #     PORT: "8080",
-    #     DISABLE_PROFILER: "1",
-    #     DISABLE_TRACING: "0"
-    #   }

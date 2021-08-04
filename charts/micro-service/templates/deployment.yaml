@@ -1,42 +1,38 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: emailservice
+  name: {{ .Values.global.name }}
 spec:
+  replicas: {{ .Values.deployment.replicas }}
   selector:
     matchLabels:
-      app: emailservice
+      app: {{ .Values.global.name }}
   template:
     metadata:
       labels:
-        app: emailservice
+        app: {{ .Values.global.name }}
     spec:
       serviceAccountName: default
       terminationGracePeriodSeconds: 5
       containers:
       - name: server
-        image: gcr.io/google-samples/microservices-demo/emailservice:v0.2.4
+        image: {{ .Values.deployment.image.name }}:{{ .Values.deployment.image.tag }}
         ports:
-        - containerPort: 8080
+        - containerPort: {{ .Values.deployment.containerPort }}
+        {{- if .Values.deployment.environment}}
         env:
-        - name: PORT
-          value: "8080"
-        # - name: DISABLE_TRACING
-        #   value: "1"
-        - name: DISABLE_PROFILER
-          value: "1"
+        {{- range $name, $value := .Values.deployment.environment }}
+        - name: {{ $name | quote}}
+          value: {{ $value | quote }}
+        {{- end }}
+        {{- end }}
         readinessProbe:
           periodSeconds: 5
           exec:
-            command: ["/bin/grpc_health_probe", "-addr=:8080"]
+            command: {{ .Values.deployment.readinessProbe.execCommand }}
         livenessProbe:
           periodSeconds: 5
           exec:
-            command: ["/bin/grpc_health_probe", "-addr=:8080"]
+            command: {{ .Values.deployment.livenessProbe.execCommand }}
         resources:
-          requests:
-            cpu: 100m
-            memory: 64Mi
-          limits:
-            cpu: 200m
-            memory: 128Mi
+            {{- toYaml .Values.deployment.resources | nindent 12 }}
