@@ -19,10 +19,10 @@ spec:
         - containerPort: {{ .Values.image.containerPort }}
         readinessProbe:
           exec:
-            command: ["/bin/grpc_health_probe", "-addr=:{{ .Values.image.tag }}"]
+            command: ["/bin/grpc_health_probe", "-addr=:{{ .Values.image.containerPort }}"]
         livenessProbe:
           exec:
-            command: ["/bin/grpc_health_probe", "-addr=:{{ .Values.image.tag }}"]
+            command: ["/bin/grpc_health_probe", "-addr=:{{ .Values.image.containerPort }}"]
         env:
         {{- toYaml .Values.env | nindent 8 }}
         resources:
