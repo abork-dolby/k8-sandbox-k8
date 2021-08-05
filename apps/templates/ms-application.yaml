@@ -1,7 +1,8 @@
+{{- range $ms := .Values.microservices }}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: checkoutservice
+  name: {{ $ms.name }}
   namespace: default
   labels:
     project: online-boutique
@@ -10,7 +11,7 @@ metadata:
 spec:
   destination:
     server: https://kubernetes.default.svc
-    namespace: default
+    namespace: {{ $ms.namespace }}
   project: platform
   source:
     path: charts/micro-service
@@ -18,8 +19,11 @@ spec:
     targetRevision: HEAD
     helm:
       valueFiles:
-        - "../../apps/values/checkoutservice.values.yaml"
+      {{- range $file := $ms.helmValues }}
+      - "{{ $file }}"
+      {{- end }}
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
+{{- end }}
