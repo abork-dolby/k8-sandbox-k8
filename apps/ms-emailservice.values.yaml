@@ -1,0 +1,5 @@
+name: "emailservice"
+
+image:
+  name: "gcr.io/google-samples/microservices-demo/emailservice" 
+  tag: "v0.2.4"
