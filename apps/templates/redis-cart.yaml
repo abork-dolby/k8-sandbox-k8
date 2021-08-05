@@ -13,7 +13,7 @@ spec:
     namespace: default
   project: platform
   source:
-    path: charts/redis-cart
+    path: charts/redis-chart
     repoURL: https://github.com/abork-dolby/k8-sandbox-k8.git
     targetRevision: HEAD
   syncPolicy:
