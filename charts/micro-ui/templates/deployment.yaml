@@ -20,21 +20,21 @@ spec:
         ports:
         - containerPort: {{ .Values.image.containerPort }}
         readinessProbe:
-            initialDelaySeconds: 10
-            httpGet:
-              path: "/_healthz"
-              port: {{ .Values.image.containerPort }}
-              httpHeaders:
-              - name: "Cookie"
-                value: "shop_session-id=x-readiness-probe"
-          livenessProbe:
-            initialDelaySeconds: 10
-            httpGet:
-              path: "/_healthz"
-              port: {{ .Values.image.containerPort }}
-              httpHeaders:
-              - name: "Cookie"
-                value: "shop_session-id=x-liveness-probe"
+          initialDelaySeconds: 10
+          httpGet:
+            path: "/_healthz"
+            port: {{ .Values.image.containerPort }}
+            httpHeaders:
+            - name: "Cookie"
+              value: "shop_session-id=x-readiness-probe"
+        livenessProbe:
+          initialDelaySeconds: 10
+          httpGet:
+            path: "/_healthz"
+            port: {{ .Values.image.containerPort }}
+            httpHeaders:
+            - name: "Cookie"
+              value: "shop_session-id=x-liveness-probe"
         env:
         {{- toYaml .Values.env | nindent 8 }}
         resources:
