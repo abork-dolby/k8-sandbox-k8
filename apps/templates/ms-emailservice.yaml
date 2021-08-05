@@ -24,8 +24,7 @@ spec:
         value: gcr.io/google-samples/microservices-demo/emailservice
       - name: image.tag
         value: v0.2.4
-      - name: "service.ports[0].port"
-        value: 5000
+
   syncPolicy:
     automated:
       prune: true
