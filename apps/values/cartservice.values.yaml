@@ -1,0 +1,16 @@
+name: "cartservice"
+
+image:
+  name: "gcr.io/google-samples/microservices-demo/cartservice" 
+  tag: "v0.2.4"
+  containerPort: 7070
+
+service:
+  ports: 
+  - name: grpc
+    port: 7070
+    targetPort: 7070
+
+env:
+- name: REDIS_ADDR
+  value: "redis-cart:6379"
