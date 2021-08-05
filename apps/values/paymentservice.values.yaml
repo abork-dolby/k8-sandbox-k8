@@ -1,0 +1,17 @@
+name: "paymentservice"
+
+image:
+  name: "gcr.io/google-samples/microservices-demo/paymentservice" 
+  tag: "v0.2.4"
+  containerPort: 50051
+
+service:
+  isPublic: false
+  ports: 
+  - name: grpc
+    port: 50051
+    targetPort: 50051
+
+env:
+- name: PORT
+  value: "50051"
