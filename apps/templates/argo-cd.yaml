@@ -3,6 +3,8 @@ kind: Application
 metadata:
   name: argo-cd
   namespace: default
+  labels:
+    project: tools
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
