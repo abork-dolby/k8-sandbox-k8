@@ -24,11 +24,11 @@ spec:
         value: gcr.io/google-samples/microservices-demo/emailservice
       - name: image.tag
         value: v0.2.4
-      - name: "service.ports"
-        value: 
-        - name: grpc
-          port: 5000
-          targetPort: 8080
+      # - name: "service.ports"
+      #   value: 
+      #   - name: grpc
+      #     port: 5000
+      #     targetPort: 8080
   syncPolicy:
     automated:
       prune: true
