@@ -17,18 +17,7 @@ spec:
     repoURL: https://github.com/abork-dolby/k8-sandbox-k8.git
     targetRevision: HEAD
     helm:
-      parameters:
-      - name: name
-        value: "emailservice"
-      - name: image.name
-        value: gcr.io/google-samples/microservices-demo/emailservice
-      - name: image.tag
-        value: v0.2.4
-      # - name: "service.ports"
-      #   value: 
-      #   - name: grpc
-      #     port: 5000
-      #     targetPort: 8080
+      valueFiles: ms-emailservice.values.yaml
   syncPolicy:
     automated:
       prune: true
