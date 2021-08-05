@@ -10,6 +10,8 @@ spec:
     metadata:
       labels:
         app: {{ .Values.name }}
+      annotations:
+        sidecar.istio.io/rewriteAppHTTPProbers: "true"
     spec:
       serviceAccountName: default
       containers:
@@ -18,11 +20,21 @@ spec:
         ports:
         - containerPort: {{ .Values.image.containerPort }}
         readinessProbe:
-          exec:
-            command: ["/bin/grpc_health_probe", "-addr=:{{ .Values.image.containerPort }}"]
-        livenessProbe:
-          exec:
-            command: ["/bin/grpc_health_probe", "-addr=:{{ .Values.image.containerPort }}"]
+            initialDelaySeconds: 10
+            httpGet:
+              path: "/_healthz"
+              port: {{ .Values.image.containerPort }}
+              httpHeaders:
+              - name: "Cookie"
+                value: "shop_session-id=x-readiness-probe"
+          livenessProbe:
+            initialDelaySeconds: 10
+            httpGet:
+              path: "/_healthz"
+              port: {{ .Values.image.containerPort }}
+              httpHeaders:
+              - name: "Cookie"
+                value: "shop_session-id=x-liveness-probe"
         env:
         {{- toYaml .Values.env | nindent 8 }}
         resources:
