@@ -13,9 +13,9 @@ service:
     targetPort: 5000
 
 livenessProbe:
-  command: ["/bin/grpc_health_probe", "-addr=:{{ .Values.image.containerPort }}"]
+  command: ["/bin/grpc_health_probe", "-addr=:5000"]
 readinessProbe: 
-  command: ["/bin/grpc_health_probe", "-addr=:{{ .Values.image.containerPort }}"]
+  command: ["/bin/grpc_health_probe", "-addr=:5000"]
 
 env:
 - name: PORT
