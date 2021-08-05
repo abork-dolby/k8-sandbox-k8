@@ -1,0 +1,17 @@
+name: "emailservice"
+
+image:
+  name: "gcr.io/google-samples/microservices-demo/emailservice" 
+  tag: "v0.2.4"
+
+service:
+  ports: 
+  - name: grpc
+    port: 5000
+    targetPort: 8080
+
+env:
+- name: PORT
+  value: "8080"
+- name: DISABLE_PROFILER
+  value: "1"
