@@ -10,6 +10,11 @@ service:
     port: 8080
     targetPort: 8080
 
+livenessProbe:
+  command: ["/bin/grpc_health_probe", "-addr=:8080"]
+readinessProbe: 
+  command: ["/bin/grpc_health_probe", "-addr=:8080"]
+
 env:
 - name: PORT
   value: "8080"
