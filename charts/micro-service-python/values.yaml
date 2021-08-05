@@ -1,8 +1,8 @@
-name: "emailservice"
+name: ""
 
 image:
-  name: "gcr.io/google-samples/microservices-demo/emailservice" 
-  tag: "v0.2.4"
+  name: "" 
+  tag: "latest"
 
 service:
   ports: 

@@ -20,6 +20,10 @@ spec:
       parameters:
       - name: name
         value: "emailservice"
+      - name: image.name
+        value: gcr.io/google-samples/microservices-demo/emailservice
+      - name: image.tag
+        value: v0.2.4
   syncPolicy:
     automated:
       prune: true
