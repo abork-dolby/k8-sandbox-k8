@@ -20,4 +20,4 @@ spec:
     app: {{ .Values.name }}
   ports:
   {{- toYaml .Values.service.ports | nindent 2 }}
-{{- end}}
+{{- end }}
