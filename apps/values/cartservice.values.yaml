@@ -14,7 +14,7 @@ service:
 livenessProbe:
   command: ["/bin/grpc_health_probe", "-addr=:7070"]
 readinessProbe: 
-  command: ["/bin/grpc_health_probe", "-addr=:7071"]
+  command: ["/bin/grpc_health_probe", "-addr=:7070"]
 
 env:
 - name: REDIS_ADDR
