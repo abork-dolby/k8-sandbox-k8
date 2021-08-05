@@ -14,6 +14,10 @@ Install the root ArgoCD app the "app of apps"
 helm template apps | k apply -f -
 ```
 
+Remove helm release
+```
+kubectl delete secret -l owner=helm,name=argo-cd
+```
 
 Access ArgoCD UI from your laptop
 ```
