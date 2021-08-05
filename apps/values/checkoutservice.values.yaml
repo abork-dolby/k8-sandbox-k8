@@ -10,6 +10,11 @@ service:
     port: 5050
     targetPort: 5050
 
+livenessProbe:
+  command: ["/bin/grpc_health_probe", "-addr=:5050"]
+readinessProbe: 
+  command: ["/bin/grpc_health_probe", "-addr=:5050"]
+
 env:
 - name: PORT
   value: "5050"
