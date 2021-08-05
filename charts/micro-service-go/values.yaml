@@ -1,0 +1,16 @@
+name: ""
+
+image:
+  name: "" 
+  tag: "latest"
+  containerPort: 5050
+
+service:
+  ports: 
+  - name: grpc
+    port: 5000
+    targetPort: 5000
+
+env:
+- name: PORT
+  value: "1111"
