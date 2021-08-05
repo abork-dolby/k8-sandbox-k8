@@ -3,6 +3,8 @@ kind: Application
 metadata:
   name: checkoutservice
   namespace: default
+  labels:
+    project: online-boutique
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
