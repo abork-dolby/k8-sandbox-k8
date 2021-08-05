@@ -17,17 +17,17 @@ spec:
       - name: server
         image: {{ .Values.image.name }}:{{ .Values.image.tag }}
         ports:
-        - containerPort: 8080
+        - containerPort: {{ .Values.image.containerPort }}
         env:
         {{- toYaml .Values.env | nindent 8 }}
         readinessProbe:
           periodSeconds: 5
           exec:
-            command: ["/bin/grpc_health_probe", "-addr=:8080"]
+            command: ["/bin/grpc_health_probe", "-addr=:{{ .Values.image.containerPort }}"]
         livenessProbe:
           periodSeconds: 5
           exec:
-            command: ["/bin/grpc_health_probe", "-addr=:8080"]
+            command: ["/bin/grpc_health_probe", "-addr=:{{ .Values.image.containerPort }}"]
         resources:
           requests:
             cpu: 100m

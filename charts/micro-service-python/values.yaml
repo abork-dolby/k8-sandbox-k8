@@ -3,6 +3,7 @@ name: ""
 image:
   name: "" 
   tag: "latest"
+  containerPort: 8080
 
 service:
   ports: 

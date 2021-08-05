@@ -6,6 +6,7 @@ image:
   containerPort: 5050
 
 service:
+  isPublic: true
   ports: 
   - name: grpc
     port: 5000
