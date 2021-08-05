@@ -1,0 +1,17 @@
+name: "currencyservice"
+
+image:
+  name: "gcr.io/google-samples/microservices-demo/currencyservice" 
+  tag: "v0.2.4"
+  containerPort: 7000
+
+service:
+  isPublic: false
+  ports: 
+  - name: grpc
+    port: 7000
+    targetPort: 7000
+
+env:
+- name: PORT
+  value: "7000"
