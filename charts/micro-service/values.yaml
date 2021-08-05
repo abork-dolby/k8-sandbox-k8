@@ -1,0 +1,22 @@
+name: ""
+
+image:
+  name: "" 
+  tag: "latest"
+  containerPort: 5050
+
+service:
+  isPublic: false
+  ports: 
+  - name: grpc
+    port: 5000
+    targetPort: 5000
+
+livenessProbe:
+  command: ["/bin/grpc_health_probe", "-addr=:{{ .Values.image.containerPort }}"]
+readinessProbe: 
+  command: ["/bin/grpc_health_probe", "-addr=:{{ .Values.image.containerPort }}"]
+
+env:
+- name: PORT
+  value: "1111"
