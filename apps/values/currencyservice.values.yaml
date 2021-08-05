@@ -12,6 +12,11 @@ service:
     port: 7000
     targetPort: 7000
 
+livenessProbe:
+  command: ["/bin/grpc_health_probe", "-addr=:7000"]
+readinessProbe: 
+  command: ["/bin/grpc_health_probe", "-addr=:7000"]
+
 env:
 - name: PORT
   value: "7000"
