@@ -16,6 +16,10 @@ spec:
     path: charts/micro-service-python
     repoURL: https://github.com/abork-dolby/k8-sandbox-k8.git
     targetRevision: HEAD
+    helm:
+      parameters:
+      - name: name
+        value: "emailservice"
   syncPolicy:
     automated:
       prune: true
