@@ -19,10 +19,10 @@ microservices:
     namespace: default
     helmValues: 
     - "../../apps/values/paymentservice.values.yaml"
-  - name: productcatalogservice
-    namespace: default
-    helmValues: 
-    - "../../apps/values/productcatalogservice.values.yaml"
+  # - name: productcatalogservice
+  #   namespace: default
+  #   helmValues: 
+  #   - "../../apps/values/productcatalogservice.values.yaml"
   - name: recommendationservice
     namespace: default
     helmValues: 
