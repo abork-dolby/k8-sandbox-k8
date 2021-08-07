@@ -21,7 +21,7 @@ spec:
     kind: CustomResourceDefinition
     namespace: argo-rollouts
     jsonPointers:
-    - spec/preserveUnknownFields
+    - /spec/preserveUnknownFields
   syncPolicy:
     automated:
       prune: true
