@@ -13,7 +13,7 @@ spec:
     namespace: default
   project: platform
   source:
-    path: charts/micro-ui
+    path: charts/micro-ui-2
     repoURL: https://github.com/abork-dolby/k8-sandbox-k8.git
     targetRevision: HEAD
     helm:
