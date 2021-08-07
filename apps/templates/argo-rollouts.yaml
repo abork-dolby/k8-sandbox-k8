@@ -17,7 +17,7 @@ spec:
     repoURL: https://github.com/abork-dolby/k8-sandbox-k8.git
     targetRevision: HEAD
   ignoreDifferences:
-  - group: apps
+  - group: adasd
     kind: CustomResourceDefinition
     jsonPointers:
     - /spec/preserveUnknownFields
