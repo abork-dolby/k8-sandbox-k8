@@ -31,3 +31,7 @@ microservices:
     namespace: default
     helmValues: 
     - "../../apps/values/shippingservice.values.yaml"
+  - name: adservice
+    namespace: default
+    helmValues: 
+    - "../../apps/values/adservice.values.yaml"
