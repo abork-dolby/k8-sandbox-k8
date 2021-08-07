@@ -3,10 +3,10 @@ microservices:
     namespace: default
     helmValues: 
     - "../../apps/values/emailservice.values.yaml"
-  - name: cartservice
-    namespace: default
-    helmValues: 
-    - "../../apps/values/cartservice.values.yaml"
+  # - name: cartservice
+  #   namespace: default
+  #   helmValues: 
+  #   - "../../apps/values/cartservice.values.yaml"
   - name: checkoutservice
     namespace: default
     helmValues: 
