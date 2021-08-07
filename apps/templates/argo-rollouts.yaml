@@ -17,7 +17,7 @@ spec:
     repoURL: https://github.com/abork-dolby/k8-sandbox-k8.git
     targetRevision: HEAD
   ignoreDifferences:
-  - group: apiextensions
+  - group: apiextensions.k8s.io
     kind: CustomResourceDefinition
     namespace: argo-rollouts
     jsonPointers:
