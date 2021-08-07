@@ -16,6 +16,11 @@ spec:
     path: charts/argo-rollouts
     repoURL: https://github.com/abork-dolby/k8-sandbox-k8.git
     targetRevision: HEAD
+  ignoreDifferences:
+  - group: apps
+    kind: CustomResourceDefinition
+    jsonPointers:
+    - /spec/preserveUnknownFields
   syncPolicy:
     automated:
       prune: true
