@@ -47,7 +47,7 @@ spec:
             memory: 128Mi
         strategy:
           canary: #Indicates that the rollout should use the Canary strategy
-            maxSurge: "25%"
+            maxSurge: "15%"
             maxUnavailable: 0
             steps:
             - setWeight: 10
