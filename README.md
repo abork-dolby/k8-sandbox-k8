@@ -5,8 +5,15 @@ https://www.arthurkoziel.com/setting-up-argocd-with-helm/
 Manually install ArgoCD using Helm chart
 ```
 helm repo add argo-cd https://argoproj.github.io/argo-helm
+helm repo add kong https://charts.konghq.com
+
 helm dep update charts/argo-cd/
+helm dep update charts/argo-rollouts/
+helm dep update charts/kong/
+
 helm install argo-cd charts/argo-cd/
+helm install argo-cd charts/argo-rollouts/
+helm install argo-cd charts/kong/
 ```
 
 Install the root ArgoCD app the "app of apps"
