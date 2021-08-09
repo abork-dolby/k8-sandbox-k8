@@ -9,14 +9,17 @@ spec:
     repoURL: https://github.com/istio/istio
     path: manifests/charts/istio-operator
     targetRevision: 1.10.3
-    # helm:
-    #   parameters:
-    #   - name: enableCRDTemplates
-    #     value: 'true'
+    helm:
+      parameters:
+      - name: hub
+        value: "istio"
   destination:
     server: https://kubernetes.default.svc
     namespace: istio-operator
   project: default
   syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
     syncOptions:
     - CreateNamespace=true
