@@ -13,6 +13,8 @@ spec:
       parameters:
       - name: hub
         value: "istio"
+      - name: tag
+        value: "1.9.7-distroless"
   destination:
     server: https://kubernetes.default.svc
     namespace: istio-operator
