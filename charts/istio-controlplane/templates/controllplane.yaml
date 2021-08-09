@@ -5,3 +5,6 @@ metadata:
   name: istio-controlplane
 spec:
   profile: demo
+  values:
+    global:
+      istioNamespace: default
