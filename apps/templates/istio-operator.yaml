@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/istio/istio
     path: manifests/charts/istio-operator
-    targetRevision: release-1.10
+    targetRevision: release-1.7
     helm:
       parameters:
       - name: enableCRDTemplates
