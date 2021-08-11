@@ -1,37 +1,37 @@
 microservices:
-  # - name: emailservice
-  #   namespace: default
-  #   helmValues: 
-  #   - "../../apps/values/emailservice.values.yaml"
-  # - name: cartservice
-  #   namespace: default
-  #   helmValues: 
-  #   - "../../apps/values/cartservice.values.yaml"
-  # - name: checkoutservice
-  #   namespace: default
-  #   helmValues: 
-  #   - "../../apps/values/checkoutservice.values.yaml"
-  # - name: currencyservice
-  #   namespace: default
-  #   helmValues: 
-  #   - "../../apps/values/currencyservice.values.yaml"
-  # - name: paymentservice
-  #   namespace: default
-  #   helmValues: 
-  #   - "../../apps/values/paymentservice.values.yaml"
-  # - name: productcatalogservice
-  #   namespace: default
-  #   helmValues: 
-  #   - "../../apps/values/productcatalogservice.values.yaml"
-  # - name: recommendationservice
-  #   namespace: default
-  #   helmValues: 
-  #   - "../../apps/values/recommendationservice.values.yaml"
-  # - name: shippingservice
-  #   namespace: default
-  #   helmValues: 
-  #   - "../../apps/values/shippingservice.values.yaml"
-  # - name: adservice
-  #   namespace: default
-  #   helmValues: 
-  #   - "../../apps/values/adservice.values.yaml"
+  - name: emailservice
+    namespace: default
+    helmValues: 
+    - "../../apps/values/emailservice.values.yaml"
+  - name: cartservice
+    namespace: default
+    helmValues: 
+    - "../../apps/values/cartservice.values.yaml"
+  - name: checkoutservice
+    namespace: default
+    helmValues: 
+    - "../../apps/values/checkoutservice.values.yaml"
+  - name: currencyservice
+    namespace: default
+    helmValues: 
+    - "../../apps/values/currencyservice.values.yaml"
+  - name: paymentservice
+    namespace: default
+    helmValues: 
+    - "../../apps/values/paymentservice.values.yaml"
+  - name: productcatalogservice
+    namespace: default
+    helmValues: 
+    - "../../apps/values/productcatalogservice.values.yaml"
+  - name: recommendationservice
+    namespace: default
+    helmValues: 
+    - "../../apps/values/recommendationservice.values.yaml"
+  - name: shippingservice
+    namespace: default
+    helmValues: 
+    - "../../apps/values/shippingservice.values.yaml"
+  - name: adservice
+    namespace: default
+    helmValues: 
+    - "../../apps/values/adservice.values.yaml"
