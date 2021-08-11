@@ -1,22 +1,22 @@
-# apiVersion: argoproj.io/v1alpha1
-# kind: Application
-# metadata:
-#   name: redis-cart
-#   namespace: default
-#   labels:
-#     project: online-boutique
-#   finalizers:
-#   - resources-finalizer.argocd.argoproj.io
-# spec:
-#   destination:
-#     server: https://kubernetes.default.svc
-#     namespace: default
-#   project: platform
-#   source:
-#     path: charts/redis-chart
-#     repoURL: https://github.com/abork-dolby/k8-sandbox-k8.git
-#     targetRevision: HEAD
-#   syncPolicy:
-#     automated:
-#       prune: true
-#       selfHeal: true
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: redis-cart
+  namespace: default
+  labels:
+    project: online-boutique
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  project: platform
+  source:
+    path: charts/redis-chart
+    repoURL: https://github.com/abork-dolby/k8-sandbox-k8.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
