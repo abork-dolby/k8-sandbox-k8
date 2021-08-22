@@ -1,17 +1,5 @@
-# apiVersion: install.istio.io/v1alpha1
-# kind: IstioOperator
-# metadata:
-#   namespace: default
-#   name: istio-controlplane
-# spec:
-#   profile: demo
-#   values:
-#     global:
-#       istioNamespace: istio-system
-# apiVersion: install.istio.io/v1alpha1
-# kind: IstioOperator
-# metadata:
-#   namespace: istio-system
-#   name: istio-controlplane
-# spec:
-#   profile: demo
+kind: IstioOperator
+metadata:
+  name: istio-controlplane
+spec:
+  profile: demo
