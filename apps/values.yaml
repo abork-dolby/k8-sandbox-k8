@@ -1,8 +1,8 @@
 microservices:
-  - name: emailservice
-    namespace: default
-    helmValues: 
-    - "../../apps/values/emailservice.values.yaml"
+  # - name: emailservice
+  #   namespace: default
+  #   helmValues: 
+  #   - "../../apps/values/emailservice.values.yaml"
   # - name: cartservice
   #   namespace: default
   #   helmValues: 
