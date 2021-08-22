@@ -8,10 +8,10 @@
 #   values:
 #     global:
 #       istioNamespace: istio-system
-apiVersion: install.istio.io/v1alpha1
-kind: IstioOperator
-metadata:
-  namespace: istio-system
-  name: istio-controlplane
-spec:
-  profile: demo
+# apiVersion: install.istio.io/v1alpha1
+# kind: IstioOperator
+# metadata:
+#   namespace: istio-system
+#   name: istio-controlplane
+# spec:
+#   profile: demo
