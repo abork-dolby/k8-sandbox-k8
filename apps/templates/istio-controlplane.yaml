@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: istio-controlplane
-  namespace: default
+  namespace: istio-system
   annotations:
     argocd.argoproj.io/sync-wave: "-1"
   labels:
@@ -12,7 +12,7 @@ metadata:
 spec:
   destination:
     server: https://kubernetes.default.svc
-    namespace: default
+    namespace: istio-system
   project: platform
   source:
     path: charts/istio-controlplane
