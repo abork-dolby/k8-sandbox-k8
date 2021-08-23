@@ -1,0 +1,7 @@
+ingress-nginx:
+  controller:
+    service:
+      labels:
+        dns: "route53"
+      annotations:
+        domainName: "abork.sandbox.dolbymedia.cloud"
