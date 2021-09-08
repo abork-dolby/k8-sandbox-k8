@@ -5,12 +5,13 @@ Manually install ArgoCD using Helm chart
 ```
 helm repo add argo-cd https://argoproj.github.io/argo-helm
 helm dep update charts/argo-cd/
-helm install argo-cd charts/argo-cd/
+kubectl create namespace platform
+helm install argo-cd charts/argo-cd/ --namespace platform
 ```
 
 Now remove helm release (this will leave ArgoCD installed)
 ```
-kubectl delete secret -l owner=helm,name=argo-cd
+kubectl delete secret -l owner=helm,name=argo-cd -n platform
 ```
 
 Access ArgoCD UI from your laptop
@@ -23,5 +24,5 @@ https://github.com/argoproj/argo-cd/blob/master/docs/faq.md#i-forgot-the-admin-p
 
 Install the root ArgoCD app the "app of apps"
 ```
-helm template apps -s templates/root.yaml | k apply -f -
+helm template apps -s templates/root.yaml | kubectl apply -f -
 ```

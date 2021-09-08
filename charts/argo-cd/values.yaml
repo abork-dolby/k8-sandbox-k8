@@ -1,3 +1,5 @@
+namespace: platform
+
 argo-cd:
   installCRDs: false
   global:
