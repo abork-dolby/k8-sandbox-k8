@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
   name: platform
-  namespace: default
+  namespace: platform
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
@@ -12,8 +12,6 @@ spec:
   - '*'
   # Only permit applications to deploy to the guestbook namespace in the same cluster
   destinations:
-  - namespace: default
-    server: https://kubernetes.default.svc
   - namespace: platform
     server: https://kubernetes.default.svc
   # syncWindows:
