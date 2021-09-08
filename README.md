@@ -25,5 +25,5 @@ https://github.com/argoproj/argo-cd/blob/master/docs/faq.md#i-forgot-the-admin-p
 
 Install the root ArgoCD app the "app of apps"
 ```
-helm template apps -s templates/root.yaml | kubectl apply -f -
+helm template apps -s templates/root.yaml | kubectl apply -f - -n platform
 ```
