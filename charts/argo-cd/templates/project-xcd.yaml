@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-  name: xcd-app
+  name: xcd
   namespace: platform
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -12,7 +12,7 @@ spec:
   - '*'
   # Only permit applications to deploy to the xCD namespace in the same cluster
   destinations:
-  - namespace: xcd-app
+  - namespace: xcd
     server: https://kubernetes.default.svc
   syncWindows:
   - kind: allow
@@ -22,4 +22,4 @@ spec:
     - '*-prod'
     manualSync: true
     namespaces:
-    - xcd-app
+    - xcd
