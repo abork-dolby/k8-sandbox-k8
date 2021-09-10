@@ -6,7 +6,3 @@ kong:
   env:
     prefix: /kong_prefix/
     database: "off"
-
-  ingressController:
-    enabled: false
-    installCRDs: false
