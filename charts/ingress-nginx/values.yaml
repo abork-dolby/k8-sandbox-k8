@@ -1,7 +1,16 @@
 ingress-nginx:
   controller:
-    service:
-      labels:
-        dns: "route53"
-      annotations:
-        domainName: "abork.sandbox.dolbymedia.cloud"
+  service:
+    internal: true
+    labels:
+      dns: "route53"
+    targetPorts:
+      http: http
+      https: http
+    annotations:
+      domainName: "abk.sandbox.dolbymedia.cloud"
+      service.beta.kubernetes.io/aws-load-balancer-internal: "true"
+      service.beta.kubernetes.io/aws-load-balancer-ssl-cert: arn:aws:acm:eu-west-1:212747566201:certificate/862e1e32-fb5e-452a-aaf8-9abafd5feb42
+      service.beta.kubernetes.io/aws-load-balancer-backend-protocol: "http"
+      service.beta.kubernetes.io/aws-load-balancer-ssl-ports: "https"
+      service.beta.kubernetes.io/aws-load-balancer-connection-idle-timeout: '3600'
