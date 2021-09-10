@@ -8,5 +8,5 @@ kong:
     database: "off"
 
   ingressController:
-    enabled: true
+    enabled: false
     installCRDs: false
