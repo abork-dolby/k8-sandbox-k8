@@ -14,12 +14,6 @@ spec:
   destinations:
   - namespace: xcd
     server: https://kubernetes.default.svc
-  clusterResourceWhitelist:
-  - group: '*'
-    kind: '*'
-  namespaceResourceWhitelist:
-  - group: '*'
-    kind: '*'
   syncWindows:
   - kind: allow
     schedule: '10 1 * * *'
