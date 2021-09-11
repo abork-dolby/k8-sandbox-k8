@@ -1,7 +1,6 @@
 ingress-nginx:
   controller:
   service:
-    internal: true
     labels:
       dns: "route53"
     targetPorts:
