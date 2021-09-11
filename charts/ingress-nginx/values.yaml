@@ -1,15 +1,34 @@
 ingress-nginx:
   controller:
-  service:
-    labels:
-      dns: "route53"
-    targetPorts:
-      http: http
-      https: http
-    annotations:
-      domainName: "abk.sandbox.dolbymedia.cloud"
-      service.beta.kubernetes.io/aws-load-balancer-internal: "true"
-      service.beta.kubernetes.io/aws-load-balancer-ssl-cert: arn:aws:acm:eu-west-1:212747566201:certificate/862e1e32-fb5e-452a-aaf8-9abafd5feb42
-      service.beta.kubernetes.io/aws-load-balancer-backend-protocol: "http"
-      service.beta.kubernetes.io/aws-load-balancer-ssl-ports: "https"
-      service.beta.kubernetes.io/aws-load-balancer-connection-idle-timeout: '3600'
+    autoscaling:
+      enabled: true
+      minReplicas: 1
+      maxReplicas: 4
+      targetCPUUtilizationPercentage: 50
+      targetMemoryUtilizationPercentage: 50
+      behavior: {}
+        # scaleDown:
+        #   stabilizationWindowSeconds: 300
+        #  policies:
+        #   - type: Pods
+        #     value: 1
+        #     periodSeconds: 180
+        # scaleUp:
+        #   stabilizationWindowSeconds: 300
+        #   policies:
+        #   - type: Pods
+        #     value: 2
+        #     periodSeconds: 60
+    service:
+      labels:
+        dns: "route53"
+      targetPorts:
+        http: http
+        https: http
+      annotations:
+        domainName: "abk.sandbox.dolbymedia.cloud"
+        service.beta.kubernetes.io/aws-load-balancer-internal: "true"
+        service.beta.kubernetes.io/aws-load-balancer-ssl-cert: arn:aws:acm:eu-west-1:212747566201:certificate/862e1e32-fb5e-452a-aaf8-9abafd5feb42
+        service.beta.kubernetes.io/aws-load-balancer-backend-protocol: "http"
+        service.beta.kubernetes.io/aws-load-balancer-ssl-ports: "https"
+        service.beta.kubernetes.io/aws-load-balancer-connection-idle-timeout: '3600'
