@@ -1,13 +1,21 @@
 kong:
-  image:
-    repository: kong
-    tag: "2.5"
-
   env:
     prefix: /kong_prefix/
     database: "off"
   
   proxy:
-    annotations:
-      "service.beta.kubernetes.io/aws-load-balancer-type": nlb
-      "service.beta.kubernetes.io/aws-load-balancer-scheme": "internal"
+    type: NodePort
+  autoscaling:
+    enabled: true
+    minReplicas: 2
+    maxReplicas: 5
+    ## targetCPUUtilizationPercentage only used if the cluster doesn't support autoscaling/v2beta
+    ## targetCPUUtilizationPercentage:
+    ## Otherwise for clusters that do support autoscaling/v2beta, use metrics
+    metrics:
+      - type: Resource
+        resource:
+          name: cpu
+          target:
+            type: Utilization
+            averageUtilization: 80
