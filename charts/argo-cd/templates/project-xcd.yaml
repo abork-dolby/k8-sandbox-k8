@@ -14,12 +14,12 @@ spec:
   destinations:
   - namespace: xcd
     server: https://kubernetes.default.svc
-  syncWindows:
-  - kind: allow
-    schedule: '10 1 * * *'
-    duration: 1h
-    applications:
-    - '*-prod'
-    manualSync: true
-    namespaces:
-    - xcd
+  # syncWindows:
+  # - kind: allow
+  #   schedule: '10 1 * * *'
+  #   duration: 1h
+  #   applications:
+  #   - '*-prod'
+  #   manualSync: true
+  #   namespaces:
+  #   - xcd
