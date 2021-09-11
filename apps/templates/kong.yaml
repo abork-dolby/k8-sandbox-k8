@@ -10,8 +10,8 @@ metadata:
 spec:
   destination:
     server: https://kubernetes.default.svc
-    namespace: platform
-  project: platform
+    namespace: xcd
+  project: xcd
   source:
     path: charts/kong
     repoURL: https://github.com/abork-dolby/k8-sandbox-k8.git
