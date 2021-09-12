@@ -22,41 +22,41 @@ spec:
     - port: 5678 # Default port for image
 ---
 
-# apiVersion: networking.k8s.io/v1
-# kind: Ingress
-# metadata:
-#   name: platform-ingress-nginx
-#   annotations:
-#     kubernetes.io/ingress.class: "nginx"
-#     ingress.kubernetes.io/rewrite-target: /
-# spec:
-#   rules:
-#   - http:
-#       paths:
-#         - path: /signin
-#           pathType: Prefix
-#           backend:
-#             service:
-#               name: signin-service
-#               port:
-#                 number: 5678
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: platform-ingress-kong
+  annotations:
+    kubernetes.io/ingress.class: "kong"
+    ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - http:
+      paths:
+        - path: /signing
+          pathType: Prefix
+          backend:
+            service:
+              name: signing-service
+              port:
+                number: 5678
 ---
 
-# apiVersion: networking.k8s.io/v1
-# kind: Ingress
-# metadata:
-#   name: platform-ingress
-#   annotations:
-#     kubernetes.io/ingress.class: "nginx"
-#     ingress.kubernetes.io/rewrite-target: /
-# spec:
-#   rules:
-#   - http:
-#       paths:
-#         - path: /xcd
-#           pathType: Prefix
-#           backend:
-#             service:
-#               name: kong-xcd-kong-proxy
-#               port:
-#                 number: 80
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: xcd-ingress-nginx
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - http:
+      paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: kong-platform-kong-proxy
+              port:
+                number: 80
