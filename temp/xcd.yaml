@@ -21,20 +21,20 @@ spec:
   ports:
     - port: 5678 # Default port for image
 ---
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: xcd-ingress
-  annotations:
-    ingress.kubernetes.io/rewrite-target: /
-spec:
-  rules:
-  - http:
-      paths:
-        - path: /xcd
-          pathType: Prefix
-          backend:
-            service:
-              name: xcd-service
-              port:
-                number: 5678
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   name: xcd-ingress
+#   annotations:
+#     ingress.kubernetes.io/rewrite-target: /
+# spec:
+#   rules:
+#   - http:
+#       paths:
+#         - path: /xcd
+#           pathType: Prefix
+#           backend:
+#             service:
+#               name: xcd-service
+#               port:
+#                 number: 5678

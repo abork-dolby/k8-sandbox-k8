@@ -4,4 +4,4 @@ kong:
     database: "off"
   
   proxy:
-    type: ClusterIP
+    type: LoadBalancer
