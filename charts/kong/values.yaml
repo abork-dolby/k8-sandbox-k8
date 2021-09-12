@@ -5,3 +5,6 @@ kong:
   
   proxy:
     type: ClusterIP
+
+  ingressController:
+    watchNamespaces: ["xcd"]

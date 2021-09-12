@@ -33,30 +33,10 @@ spec:
   rules:
   - http:
       paths:
-        - path: /signing
+        - path: /xcd/signing
           pathType: Prefix
           backend:
             service:
               name: signing-service
               port:
                 number: 5678
----
-
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: platform-ingress-nginx
-  annotations:
-    kubernetes.io/ingress.class: "nginx"
-    ingress.kubernetes.io/rewrite-target: /
-spec:
-  rules:
-  - http:
-      paths:
-        - path: /
-          pathType: Prefix
-          backend:
-            service:
-              name: kong-platform-kong-proxy
-              port:
-                number: 80
