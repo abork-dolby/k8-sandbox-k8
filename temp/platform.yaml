@@ -1,23 +1,23 @@
 kind: Pod
 apiVersion: v1
 metadata:
-  name: signin-app
+  name: signing-app
   labels:
-    app: signin
+    app: signing
 spec:
   containers:
-    - name: signin-app
+    - name: signing-app
       image: hashicorp/http-echo
       args:
-        - "-text=signin"
+        - "-text=signing"
 ---
 kind: Service
 apiVersion: v1
 metadata:
-  name: signin-service
+  name: signing-service
 spec:
   selector:
-    app: signin
+    app: signing
   ports:
     - port: 5678 # Default port for image
 ---
@@ -45,7 +45,7 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: xcd-ingress-nginx
+  name: platform-ingress-nginx
   annotations:
     kubernetes.io/ingress.class: "nginx"
     ingress.kubernetes.io/rewrite-target: /
