@@ -1,0 +1,40 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: xcd-app
+  labels:
+    app: xcd
+spec:
+  containers:
+    - name: xcd-app
+      image: hashicorp/http-echo
+      args:
+        - "-text=xcd"
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: xcd-service
+spec:
+  selector:
+    app: xcd
+  ports:
+    - port: 5678 # Default port for image
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: xcd-ingress
+  annotations:
+    ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - http:
+      paths:
+        - path: /xcd
+          pathType: Prefix
+          backend:
+            service:
+              name: xcd-service
+              port:
+                number: 5678

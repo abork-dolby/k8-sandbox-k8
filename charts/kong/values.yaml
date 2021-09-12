@@ -4,4 +4,4 @@ kong:
     database: "off"
   
   proxy:
-    type: NodePort
+    type: ClusterIp
