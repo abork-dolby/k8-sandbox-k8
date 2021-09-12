@@ -7,5 +7,4 @@ kong:
     type: ClusterIP
 
   ingressController:
-    watchNamespaces:
-    - "xcd"
+    watchNamespaces: ["xcd"]
