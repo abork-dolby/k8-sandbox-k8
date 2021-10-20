@@ -13,7 +13,7 @@ kong:
     type: LoadBalancer
 
   autoscaling:
-    enabled: true
+    enabled: false
     minReplicas: 2
     maxReplicas: 1000
     ## targetCPUUtilizationPercentage only used if the cluster doesn't support autoscaling/v2beta
