@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: kong-xcd
+  name: kong
   namespace: platform
   labels:
     project: tools
