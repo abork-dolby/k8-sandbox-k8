@@ -14,6 +14,9 @@ spec:
     path: charts/microservice
     repoURL: https://github.com/abork-dolby/k8-sandbox-k8.git
     targetRevision: HEAD
+    helm:
+      valueFiles:
+        - "../../apps/values/hello.values.yaml"
   syncPolicy:
     automated:
       prune: true

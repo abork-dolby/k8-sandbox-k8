@@ -1,0 +1,8 @@
+name: "hello"
+
+image:
+  name: "borkke/echo" 
+
+message: "Hellooooo!!!"
+
+route: "/hello"
