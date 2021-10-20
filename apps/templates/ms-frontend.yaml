@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: frontend
-  namespace: default
+  namespace: platform
   labels:
     project: online-boutique
   finalizers:
@@ -10,7 +10,7 @@ metadata:
 spec:
   destination:
     server: https://kubernetes.default.svc
-    namespace: default
+    namespace: platform
   project: platform
   source:
     path: charts/micro-ui
