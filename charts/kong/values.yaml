@@ -1,10 +1,35 @@
 kong:
   env:
-    prefix: /kong_prefix/
-    database: "off"
-  
-  proxy:
-    type: ClusterIP
+    LOG_LEVEL: info
+    # PLUGINS: oidc-validate
+    # PLUGINSERVER_NAMES: oidc-validate
+    # PLUGINSERVER_OIDC_VALIDATE_QUERY_CMD: /usr/local/bin/oidc-validate -dump
 
-  ingressController:
-    watchNamespaces: ["xcd"]
+  image:
+    repository: kong
+    tag: "2.5"
+
+  proxy:
+    type: NodePort
+
+  autoscaling:
+    enabled: true
+    minReplicas: 2
+    maxReplicas: 1000
+    ## targetCPUUtilizationPercentage only used if the cluster doesn't support autoscaling/v2beta
+    targetCPUUtilizationPercentage:
+    ## Otherwise for clusters that do support autoscaling/v2beta, use metrics
+    metrics:
+      - type: Resource
+        resource:
+          name: cpu
+          target:
+            type: Utilization
+            averageUtilization: 80
+
+  # Kong Pod Disruption Budget
+  podDisruptionBudget:
+    enabled: false
+    # Uncomment only one of the following when enabled is set to true
+    # maxUnavailable: "50%"
+    # minUnavailable: "50%"
