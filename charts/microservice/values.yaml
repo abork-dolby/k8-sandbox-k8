@@ -1,17 +1,8 @@
-name: ""
+name: "hello"
 
 image:
-  name: "" 
-  tag: "latest"
-  containerPort: 5050
+  name: "borkke/echo" 
 
-service:
-  isPublic: false
-  ports: 
-  - name: grpc
-    port: 5000
-    targetPort: 5000
+message: "Hello"
 
-env:
-- name: PORT
-  value: "1111"
+route: "/hello"
