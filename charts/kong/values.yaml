@@ -10,7 +10,7 @@ kong:
     tag: "2.5"
 
   proxy:
-    type: NodePort
+    type: LoadBalancer
 
   autoscaling:
     enabled: true
