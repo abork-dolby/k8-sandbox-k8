@@ -1,0 +1,8 @@
+name: "world"
+
+image:
+  name: "borkke/echo" 
+
+message: "World"
+
+route: "/world"
